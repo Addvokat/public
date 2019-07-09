@@ -1,0 +1,17 @@
+def dig_pow(n, p):
+    assert n > 0 and p > 0
+    digits = (int(i) for i in str(n))
+    result = 0
+    for x in digits:
+        result += x ** p
+        p += 1
+
+    if result % n:
+        print (-1)
+
+    else:
+        print (result // n)
+dig_pow(46288, 3)
+dig_pow(89, 1)
+dig_pow(92, 1)
+dig_pow(695, 2)
