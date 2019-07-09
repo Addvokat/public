@@ -1,0 +1,12 @@
+import numpy as np
+a = [[1,4],[7,10],[3,5]]
+b = (np.diff(a[0]))
+c = (np.diff(a[1]))
+d = (np.diff(a[2]))
+b = set(b)
+c = set(c)
+d = set(d)
+all = (b).union(c).union(d)
+#all = (*b,*c,*d)
+g = sum(all)
+print(g)
