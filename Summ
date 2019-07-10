@@ -1,12 +1,12 @@
 import numpy as np
-a = [[1,4],[7,10],[3,5]]
-b = (np.diff(a[0]))
-c = (np.diff(a[1]))
-d = (np.diff(a[2]))
-b = set(b)
-c = set(c)
-d = set(d)
-all = (b).union(c).union(d)
+a = [[1,4],[7,10],[3,5]] #определяем
+b = (np.diff(a[0])) #получаем интервалы
+c = (np.diff(a[1])) #получаем интервалы
+d = (np.diff(a[2])) #получаем интервалы
+b = set(b) #преобразуем
+c = set(c) #преобразуем
+d = set(d) #преобразуем
+all = (b).union(c).union(d) #объединяем
 #all = (*b,*c,*d)
-g = sum(all)
-print(g)
+g = sum(all) #получае сумму
+print(g) #return выводим или возвращаем результат
