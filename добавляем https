@@ -1,0 +1,17 @@
+def normalize_url(url):
+    ssl = 'https://'
+    no_ssl = 'http://'
+    if ssl in url:
+        return(url)
+    elif no_ssl in url:
+        crop = url[7:]
+        add_ssl = ('%s%s'%(ssl, crop))
+        return (add_ssl)
+    else:
+        no_http = ('%s%s')%(ssl, url)
+        return (no_http)
+
+
+  
+    
+normalize_url('ukr.net')
