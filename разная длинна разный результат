@@ -1,0 +1,16 @@
+def shouter(string):
+    length = len(string)
+    result = ''
+    if length <5:
+        print (string)
+    if length == 5:
+        str_ing = string*10
+        print (str_ing)
+    if length > 5:
+        result = ''
+        counter = 0
+        while counter != 100:
+            result += string
+            counter += 1
+        print (result)
+shouter('a')
