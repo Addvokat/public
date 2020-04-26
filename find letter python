@@ -1,0 +1,15 @@
+def does_contain(string, letter):
+
+    counter = 0
+    while counter < len(string):
+        if string[counter] == letter:
+            return True
+        else:
+            counter += 1
+    return False
+            
+
+print(does_contain('Renly', 'R'))  # => True
+print(does_contain('Renly', 'r'))  # => False
+print(does_contain('Tommy', 'm'))  # => True
+print(does_contain('Tommy', 'd'))  # => False
