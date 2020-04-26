@@ -1,0 +1,23 @@
+def checkio(list):
+    check_len = len(list)
+    len_list = len(list) -1
+    if check_len == 0:
+        return 0  
+    summ_numbers = 0
+    while len_list >= 0:
+        if len_list % 2 == 0:
+            summ_numbers += list[len_list]
+            len_list -= 1
+        else:
+            len_list -= 1
+    i = list[-1]
+    return summ_numbers * i
+
+
+        
+
+
+print(checkio([0, 1, 2, 3, 4, 5]))
+print(checkio([1, 3, 5]))
+print(checkio([6]))
+print(checkio([]))
