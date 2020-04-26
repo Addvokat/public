@@ -1,0 +1,23 @@
+while True:    
+    all_types = input("Введите одну из фигур - прямоугольник, треугольник или круг: ")
+    all_types = all_types.lower()
+    if all_types == 'exit':
+        break
+    if 'пря' in all_types or 're' in all_types:
+        first_side = int(input('Введите первую сторону: '))
+        second_side = int(input('Введите вторую сторону: '))
+        print(float(first_side * second_side))
+    elif 'тр' in all_types or 'tri' in all_types: #Heron's theorem
+        a = int(input('Введите первую сторону: '))
+        b = int(input('Введите вторую сторону: '))
+        c = int(input('Введите третью сторону: '))
+        p = ((a + b + c)/2)
+        s = (p * (p - a) * (p - b) * (p - c))**0.5
+        print('Площадь треугольника -', (float(s)))
+    elif all_types == 'круг' or 'ro' in all_types:
+        PI = 3.14
+        r = int(input('Введите радиус: '))
+        s_round = PI * r**2
+        print('Площадь круга -', (float(s_round)))
+    else:
+        print('Такой фигуры нет в списке!!!')
