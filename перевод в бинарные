@@ -1,0 +1,10 @@
+def binary(number):
+    result = ''
+    if number == 0:
+        return ('0')
+    while number > 0:
+        modulo = str(number % 2) 
+        result = modulo + result
+        number = number // 2
+    return result
+print(binary(86))
