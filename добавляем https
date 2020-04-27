@@ -10,8 +10,6 @@ def normalize_url(url):
     else:
         no_http = ('%s%s')%(ssl, url)
         return (no_http)
-
-
-  
+ 
     
 normalize_url('ukr.net')
