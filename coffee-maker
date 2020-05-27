@@ -1,0 +1,111 @@
+class CoffeeMachine:  
+    
+    running = False   
+
+    def __init__(self):
+
+        self.water = 400
+        self.milk = 540
+        self.coffee = 120
+        self.paper_cups = 9
+        self.money = 550
+
+        if not CoffeeMachine.running:
+            self.action()
+
+
+    def action(self):
+        self.running = True
+        self.service_selection = input('Write action (buy, fill, take, remaining, exit):\n')
+        if self.service_selection == 'buy':
+            self.buy_coffee()
+        elif self.service_selection == 'fill':
+            self.fill()
+        elif self.service_selection == 'take':
+            self.take()
+        elif self.service_selection == 'remaining':
+            self.remaining()
+        elif self.service_selection == 'exit':
+            exit()
+
+
+    def go_to_menu(self):
+        print()
+        self.action()
+
+    
+    def check_ingridients(self):
+        self.not_enough = ''
+        if self.water - self.kind_coffee.get('water') < 0:
+            self.not_enough = 'water'
+        elif self.milk - self.kind_coffee.get('milk') < 0:
+            self.not_enough = 'milk'
+        elif self.coffee - self.kind_coffee.get('coffee_beans') < 0:
+            self.not_enough = 'coffee beans'
+        elif self.paper_cups - self.kind_coffee.get('paper_cups') < 0:
+            self.not_enough = 'disposable cups'
+
+        if self.not_enough != '':
+            print(f"Sorry, not enough {self.not_enough}!")
+            return False
+        else:
+            print('I have enough resources, making you a coffee!')
+            self.change_quantity()
+            return True
+
+
+    def change_quantity(self):
+        self.water -= self.kind_coffee.get('water')
+        self.milk -= self.kind_coffee.get('milk')
+        self.coffee -= self.kind_coffee.get('coffee_beans')
+        self.paper_cups -= self.kind_coffee.get('paper_cups')
+        self.money += self.kind_coffee.get('money')
+
+        
+    def remaining(self):
+        print()
+        print ('The coffee machine has:')
+        print (str(self.water) + ' of water')
+        print (str(self.milk) + ' of milk')
+        print (str(self.coffee) + ' of coffee beans')
+        print (str(self.paper_cups) + ' of disposable cups')
+        print ('$' + (str(self.money) + ' of money'))
+        self.go_to_menu()
+
+       
+    def buy_coffee(self):
+        self.coffee_selection = input('What do you want to buy? 1 - espresso, 2 - latte, 3 - cappuccino, back - to main menu:\n')
+        if self.coffee_selection == 'back':
+            self.go_to_menu()
+        if self.coffee_selection == '1':
+            self.kind_coffee = dict(water=250, milk=0, coffee_beans=16, paper_cups=1, money=4)
+            self.check_ingridients()
+            self.go_to_menu()
+        elif self.coffee_selection == '2':
+            self.kind_coffee = dict(water=350, milk=75, coffee_beans=20, paper_cups=1, money=7)
+            self.check_ingridients()
+            self.go_to_menu()
+        elif self.coffee_selection == '3':
+            self.kind_coffee = dict(water=200, milk=100, coffee_beans=12, paper_cups=1, money=6)
+            self.check_ingridients()
+            self.go_to_menu()
+
+    def fill(self):
+        self.how_many_water = int(input('Write how many ml of water the coffee machine has:\n'))
+        self.how_many_milk = int(input('Write how many ml of milk the coffee machine has:\n'))
+        self.how_many_cofee = int(input('Write how many grams of coffee beans the coffee machine has:\n'))
+        self.how_many_paper_cups = int(input('Write how many disposable cups of coffee do you want to add:\n'))
+        self.water += self.how_many_water
+        self.milk += self.how_many_milk
+        self.coffee += self.how_many_cofee
+        self.paper_cups += self.how_many_paper_cups
+        self.go_to_menu()
+
+    def take(self):
+        print()
+        print('I gave you ' + '$' + str(self.money))
+        self.money = 0
+        self.go_to_menu()
+
+                      
+my_coffemachine = CoffeeMachine()
