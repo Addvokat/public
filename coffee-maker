@@ -2,7 +2,7 @@ class CoffeeMachine:
     
     running = False   
 
-    def __init__(self):
+    def __init__(self): 
 
         self.water = 400
         self.milk = 540
